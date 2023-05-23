@@ -1,18 +1,30 @@
 <script setup>
-import Day1 from "./components/Day1.vue"
-import Day2 from "./components/Day2.vue"
+import {ref} from "vue";
+import NavMenu from "./Nav/NavMenu.vue";
+
+const show = ref(false)
+
+const showNav = () => {
+  show.value = true
+}
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto p-10 space-y-2">
-    <div class="text-2xl font-bold">Day 1</div>
-    <div class="p-4">
-      <Day1></Day1>
-    </div>
-
-    <div class="text-2xl font-bold">Day 2</div>
-    <div class="p-4">
-      <Day2></Day2>
+  <div>
+    <NavMenu v-model:show="show"></NavMenu>
+    <div class="xl:pl-72">
+      <div class="xl:hidden sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-white/5 bg-gray-900 px-4 shadow-sm sm:px-6 lg:px-8">
+        <button @click="showNav" type="button" class="-m-2.5 p-2.5 text-white xl:hidden">
+          <span class="sr-only">Open sidebar</span>
+          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+      <main class="lg:pr-96 p-4">
+        <router-view />
+      </main>
     </div>
   </div>
+
 </template>

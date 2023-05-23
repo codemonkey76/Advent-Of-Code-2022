@@ -3,22 +3,9 @@ import { ref } from 'vue'
 
 const output = ref('Output will go here')
 const input = ref('')
-const blocks = ref([])
-const highestSum = ref(0)
 
 const processInput = () => {
-  const rawBlocks = input.value.split('\n\n')
-
-  blocks.value = rawBlocks.map(block => block.split('\n').map(line => Number(line)))
-
-  blocks.value.forEach(block => {
-    const sum = block.reduce((a,b) => a+b, 0)
-    if (sum > highestSum.value) {
-      highestSum.value = sum
-    }
-  })
-
-  output.value = highestSum.value
+  
 }
 
 </script>

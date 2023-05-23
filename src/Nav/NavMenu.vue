@@ -111,8 +111,9 @@ const hideSidebar = () => {
 }
 
 const navigation = [
-  {name: 'Day 1', route: 'day1', icon: FolderIcon, current: false},
-  {name: 'Day 2', route: 'day2', icon: FolderIcon, current: false},
+  {name: 'Day 1', route: 'day1', icon: FolderIcon},
+  {name: 'Day 2', route: 'day2', icon: FolderIcon},
+  {name: 'Day 3', route: 'day3', icon: FolderIcon},
 ]
 
 </script>

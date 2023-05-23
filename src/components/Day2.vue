@@ -1,8 +1,9 @@
 <script setup>
 import {ref} from 'vue'
+import inputText from '../assets/day2.txt?raw'
 
 const output = ref('Output will go here')
-const input = ref('')
+const input = ref(inputText)
 
 const pointsMap = {
   "A": {"X": 3, "Y": 6, "Z": 0},
@@ -28,14 +29,17 @@ const points = (a, b) => {
 }
 const processInput = () => {
   const rounds = input.value.split('\n').filter(round => round.trim() !== '');
-  const roundPoints = rounds.map((round) => points(...round.split(' ')))
+  const roundPoints = rounds.map((round) => {
+    const [a, b] = round.split(' ').map(arg => arg.trim());
+    return points(a, b);
+  })
   output.value = roundPoints.reduce((a,b) => a+b, 0)
 }
 
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto p-10 space-y-2">
+  <div class="space-y-2">
     <label for="Input" class="block text-sm font-medium leading-6 text-gray-900">Input</label>
     <textarea id="about" name="about" rows="3"
               class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"

@@ -5,7 +5,7 @@ const output = ref('Output will go here')
 const input = ref('')
 
 const processInput = () => {
-
+  
 }
 
 </script>

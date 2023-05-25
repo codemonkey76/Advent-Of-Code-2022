@@ -114,6 +114,7 @@ const navigation = [
   {name: 'Day 1', route: 'day1', icon: FolderIcon},
   {name: 'Day 2', route: 'day2', icon: FolderIcon},
   {name: 'Day 3', route: 'day3', icon: FolderIcon},
+  {name: 'Day 4', route: 'day4', icon: FolderIcon}
 ]
 
 </script>
